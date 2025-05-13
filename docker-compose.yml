@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+  # Servicio de la aplicación
+  front:
+    build:
+      context: ./
+    container_name: front
+    image: sebastianwebapp/practica_grupal_4p_front:latest
+    ports:
+      - "80:80"
+    restart: always
+    
