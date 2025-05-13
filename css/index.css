@@ -5,6 +5,9 @@ html,body{
     height: 100%;
 }
 
+#Btn_L1{
+  background-color: #66ff66;
+}
 
 #Btn_Crear {
     appearance: button;
