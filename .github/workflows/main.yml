@@ -58,9 +58,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Instalamos vercel CLI para configurar
       - name: Install Vercel CLI
         run: npm install -g vercel
 
+      # Creamos el proyecto de vercel con el nombre del proyecto de github
       - name: Deploy to Vercel
         run: vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
 
