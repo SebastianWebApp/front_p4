@@ -61,14 +61,19 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - run: npm install -g vercel
+      - name: Install Vercel CLI
+        run: npm install -g vercel
 
-      - run: vercel pull --yes --environment=production --token=$VERCEL_TOKEN --project=my-vercel-app
+      - name: Pull Vercel environment
+        run: |
+          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }} --project=my-vercel-app
 
-      - run: vercel build --prod --token=$VERCEL_TOKEN --project=my-vercel-app
-
-      - run: vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN --project=my-vercel-app
+      - name: Deploy to Vercel
+        run: |
+          vercel --prod --confirm --token=${{ secrets.VERCEL_TOKEN }} --project=my-vercel-app
 
