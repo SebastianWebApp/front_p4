@@ -1,7 +1,7 @@
 name: Vercel
 
 on:
-  push:
+  pull_request:
     branches:
       - main  # Cambia según sea necesario
 
